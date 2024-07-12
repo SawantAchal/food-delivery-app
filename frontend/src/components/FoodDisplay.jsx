@@ -11,9 +11,12 @@ const FoodDisplay = ({category}) => {
         <div className='grid grid-cols-auto-fill-240 gap-8 mt-8 gap-y-12'>
             {
                 food_list.map((item, index) => {
-                    return (
-                        <FoodItem key={index} id={item._id} image={item.image} name={item.name} description={item.description} price={item.price} category={item.category}/>
-                    )
+                    //to filter add by category
+                    if (category==="All" || category===item.category) {
+                        return (
+                            <FoodItem key={index} id={item._id} image={item.image} name={item.name} description={item.description} price={item.price} category={item.category}/>
+                        )
+                    }
                 })
             }
         </div>
