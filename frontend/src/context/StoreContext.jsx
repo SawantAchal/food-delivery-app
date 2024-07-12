@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState ,useEffect } from "react";
 import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext(null)
@@ -24,10 +24,21 @@ const StoreContextProvider = (props) => {
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({...prev,[itemId]:prev[itemId]-1}))
     }
+
+    //to check product is add in cart or not 
+    useEffect(() => {
+      console.log(cartItems);
+    }, [cartItems])
+    
+
     const contextValue = {
         //mount food list from assets to use in any component
         // food_list is value of context
-        food_list
+        food_list,
+        cartItems,
+        setCartItems,
+        addToCart,
+        removeFromCart
     }
 
     return (
