@@ -20,6 +20,7 @@ export default {
         // Custom class name
         'auto-fill-240': 'repeat(auto-fill, minmax(240px, 1fr))',
         'custom-layout': '2fr 1fr 1fr',
+        'custom-layout-for-cart' : '1fr 1.5fr 1fr 1fr 1fr 0.5fr',
       }
     },
   },
