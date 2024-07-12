@@ -3,7 +3,7 @@ import {StoreContext} from '../context/StoreContext'
 import FoodItem from './FoodItem'
 
 const FoodDisplay = ({category}) => {
-    // diplay food list using context api
+    // display food list using context api
     const {food_list} = useContext(StoreContext)
   return (
     <div className='mt-8'>

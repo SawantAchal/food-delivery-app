@@ -6,7 +6,6 @@ const FoodItem = ({id , name , price, description , image}) => {
     const {cartItems ,addToCart,removeFromCart} = useContext(StoreContext)
 
   return (
-    // box shadow : 0px 0px 10px #0000015
     <div className='w-[100%] m-auto rounded-xl shadow-sm transition-[0.3s] animate-[fadeIn_3s]'>
         <div className='relative'>
             <img src={image} alt={name} className='w-[100%] rounded-t-xl'/>
@@ -26,8 +25,7 @@ const FoodItem = ({id , name , price, description , image}) => {
                 <img src={assets.rating_starts} alt='' className='w-16'/>
             </div>
             <p className='text-gray-600 text-base'>{description}</p>
-            {/* margin : 10px 0px */}
-            <p className='text-red-600 text-lg font-medium m-3'>$ : {price}</p>
+            <p className='text-red-600 text-lg font-medium my-2.5'>$ : {price}</p>
         </div>
     </div>
   )

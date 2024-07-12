@@ -3,9 +3,8 @@ import { assets } from '../assets/assets'
 
 const Footer = () => {
   return (
-    // padding 20px 8vw pt:8opx
-    <footer className='text-gray-300 bg-slate-500 flex flex-col items-center gap-5 pt-20 p-5 mt-24'>
-        <div className='w-[100%] grid grid-cols-custom-layout gap-20'>
+    <footer className='text-gray-300 bg-slate-500 flex flex-col items-center gap-5 pt-2.5 px-[8vw] pb-5 mt-24'>
+        <div className='w-[100%] md:grid md:grid-cols-custom-layout md:gap-20 flex flex-col gap-9'>
             <div className='flex flex-col items-start gap-5 list-none'>
                 <img src={assets.logo}/>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure amet adipisci, quod nemo dolores quia impedit quisquam ducimus iusto dolore, quidem porro quam ipsam qui natus commodi corrupti sunt ipsum?</p>
@@ -32,9 +31,8 @@ const Footer = () => {
                 </ul>
             </div>
         </div>
-        {/* margin 20px 0 */}
-        <hr className='w-full h-1 m-5 bg-gray-700 border-none'/>
-        <p>Copyright 2024 &copy; Created by Achal Sawant</p>
+        <hr className='w-full h-1 my-5 bg-gray-700 border-none'/>
+        <p className='text-center'>Copyright 2024 &copy; Created by Achal Sawant</p>
     </footer>
   )
 }
