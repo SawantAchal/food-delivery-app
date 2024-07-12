@@ -15,6 +15,11 @@ export default {
             opacity: 1
           }
         }
+      },
+      gridTemplateColumns:{
+        // Custom class name
+        'auto-fill-240': 'repeat(auto-fill, minmax(240px, 1fr))',
+        'custom-layout': '2fr 1fr 1fr',
       }
     },
   },
