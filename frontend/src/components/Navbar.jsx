@@ -6,7 +6,7 @@ import { StoreContext } from '../context/StoreContext';
 function Navbar({setShowLogin}) {
   const [menu, setMenu] = useState("home");
   // to get total cart item
-  const {getTotalCartAmount} = useContext(StoreContext)
+  const {getTotalCartAmount , token , setToken} = useContext(StoreContext)
 
   return (
     <nav className='p-5 flex justify-between items-center'>
@@ -24,8 +24,18 @@ function Navbar({setShowLogin}) {
           {/* if item is in the cart then dot is visible if not then dot is not visible  */}
           <section className={getTotalCartAmount()===0? '' :'absolute min-w-2 min-h-2 bg-red-500 -top-2 -right-2 rounded-lg' }></section>
         </section>
+        {
+          !token ?  <button className='bg-transparent md:text-lg text-sm border-red-500 p-1 rounded-lg border-2 cursor-pointer' onClick={() => setShowLogin(true)}>sign in</button>
+          : <div className='relative group'>
+            <img src={assets.profile_icon} alt=''/>
+            <ul className='absolute hidden z-10 right-5  group-hover:flex group-hover:flex-col group-hover:p-3 gap-2 bg-white shadow-md rounded border border-solid border-red-800 outline-2 outline-none outline-white'>
+              <li className='flex items-center gap-2 cursor-pointer hover:text-red-600'><img src={assets.bag_icon} alt='' className='w-5'/><p className=''>Orders</p></li>
+              <hr/>
+              <li className='flex items-center gap-2 cursor-pointer hover:text-red-600'><img src={assets.logout_icon} alt=''className='w-5'/><p className=''>Logout</p></li>
+            </ul>
+          </div>
+        }
         {/* use Props here  when onclick sign in button*/}
-        <button className='bg-transparent md:text-lg text-sm border-red-500 p-1 rounded-lg border-2 cursor-pointer' onClick={() => setShowLogin(true)}>sign in</button>
       </section>
     </nav>
   );
