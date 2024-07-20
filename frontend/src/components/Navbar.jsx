@@ -1,12 +1,21 @@
 import { useContext, useState } from 'react';
 import {assets} from '../assets/assets'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { StoreContext } from '../context/StoreContext';
 
 function Navbar({setShowLogin}) {
   const [menu, setMenu] = useState("home");
   // to get total cart item
   const {getTotalCartAmount , token , setToken} = useContext(StoreContext)
+  const navigate = useNavigate();
+
+  //function for logout
+  const logout = () => {
+    //for logout we have to remove token from local storage
+    localStorage.removeItem("token");
+    setToken("")
+    navigate('/')
+  }
 
   return (
     <nav className='p-5 flex justify-between items-center'>
@@ -24,6 +33,7 @@ function Navbar({setShowLogin}) {
           {/* if item is in the cart then dot is visible if not then dot is not visible  */}
           <section className={getTotalCartAmount()===0? '' :'absolute min-w-2 min-h-2 bg-red-500 -top-2 -right-2 rounded-lg' }></section>
         </section>
+        {/* conditional rendering for signin button and orfile icon */}
         {
           !token ?  <button className='bg-transparent md:text-lg text-sm border-red-500 p-1 rounded-lg border-2 cursor-pointer' onClick={() => setShowLogin(true)}>sign in</button>
           : <div className='relative group'>
@@ -31,7 +41,7 @@ function Navbar({setShowLogin}) {
             <ul className='absolute hidden z-10 right-5  group-hover:flex group-hover:flex-col group-hover:p-3 gap-2 bg-white shadow-md rounded border border-solid border-red-800 outline-2 outline-none outline-white'>
               <li className='flex items-center gap-2 cursor-pointer hover:text-red-600'><img src={assets.bag_icon} alt='' className='w-5'/><p className=''>Orders</p></li>
               <hr/>
-              <li className='flex items-center gap-2 cursor-pointer hover:text-red-600'><img src={assets.logout_icon} alt=''className='w-5'/><p className=''>Logout</p></li>
+              <li className='flex items-center gap-2 cursor-pointer hover:text-red-600' onClick={logout}><img src={assets.logout_icon} alt=''className='w-5'/><p className=''>Logout</p></li>
             </ul>
           </div>
         }
