@@ -41,6 +41,12 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
+    //logic for - after a refresh page data should be remain in local storage .
+    useEffect(() => {
+        if(localStorage.getItem("token")){
+            setToken(localStorage.getItem("token"))
+        }
+    },[])
 
     //to check product is add in cart or not 
     // useEffect(() => {
