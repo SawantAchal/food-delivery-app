@@ -7,6 +7,6 @@ const cartRouter =  express.Router();
 //api endpoint
 cartRouter.post('/addtousercart' ,authMiddleware,addToUserCart)
 cartRouter.post('/removefromcart' ,authMiddleware,removeItemFromUserCart)
-cartRouter.get('/getcartdetails' ,authMiddleware,getCartdetailFromUserCart)
+cartRouter.post('/getcartdetails' ,authMiddleware,getCartdetailFromUserCart)
 
 export default cartRouter;
