@@ -13,7 +13,7 @@ const StoreContextProvider = (props) => {
     const [food_list ,setFoodList] = useState([])
 
     // to add cart item functionality
-    const addToCart = (itemId) => {
+    const addToCart = async (itemId) => {
         // if user add product 1st time
         if (!cartItems[itemId]) {
             setCartItems((prev) => ({...prev,[itemId] : 1}))
@@ -22,11 +22,19 @@ const StoreContextProvider = (props) => {
         else {
             setCartItems((prev) => ({...prev,[itemId]:prev[itemId] +1}))
         }
+        //check token is available for not
+        if (token) {
+            await axios.post(url+"/api/cart/addtousercart" ,{itemId},{headers:{token}})
+        }
     }
 
     // to remove item from cart
-    const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev,[itemId]:prev[itemId]-1}))
+    const removeFromCart = async (itemId) => {
+        setCartItems((prev) => ({...prev,[itemId]:prev[itemId]-1}));
+        //check token is available for not
+        if (token) {
+            await axios.post(url+"/api/cart/removefromcart",{itemId},{headers:{token}})
+        }
     }
 
     // to return cart total
@@ -58,14 +66,22 @@ const StoreContextProvider = (props) => {
         // console.log(response)
     }
 
+    //after a refresh the page how mush fooditem you have add into the cart should be display as it is.
+    const loadCartData = async(token) => {
+        const response = await axios.post(url+'/api/cart/getcartdetails',{},{headers:{token}});
+        setCartItems(response.data.cartData);
+    }
+
     useEffect(() => {
         async function loadData(){
             await fetchFoodList();
-        }
         //logic for - after a refresh page data should be remain in local storage .
         if(localStorage.getItem("token")){
             setToken(localStorage.getItem("token"))
+            //load the loadCartData function after refresh the page
+            await loadCartData(localStorage.getItem("token"))
         }
+    }
         loadData()
     },[])
 
