@@ -55,7 +55,7 @@ const registerUser = async (req, res) => {
             return res.json({success:false,messsage:"Please enter strong password"})
         }
 
-        //to encrypt the passowrd 
+        //to encrypt the passowrd
         const salt = await bcrypt.genSalt(10)
         const hashedPassowrd = await bcrypt.hash(password,salt);
 

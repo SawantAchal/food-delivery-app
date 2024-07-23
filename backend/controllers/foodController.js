@@ -6,7 +6,7 @@ const addFood = async (req, res) => {
     //logic to store product data into the database
 
     //to store name of the image 
-    let image_filename = `${req.file.filename}`;
+    let image_filename = req.file.filename;
 
     const food = new foodModel({
         name:req.body.name,
