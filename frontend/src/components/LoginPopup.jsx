@@ -28,7 +28,7 @@ const LoginPopup = ({setShowLogin}) => {
         //logic to call the api 
         let newUrl = url;
         //check current state is login 
-        if (currentState === 'Login') {
+        if (currentState === 'login') {
             newUrl += '/api/user/login'
         }
         else {
