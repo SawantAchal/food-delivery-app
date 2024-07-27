@@ -1,29 +1,27 @@
 import foodModel from '../models/foodModel.js';
 import fs from 'fs'
 
-//add food item 
+ //add food item 
 const addFood = async (req, res) => {
-    //logic to store product data into the database
-
-    //to store name of the image 
-    let image_filename = req.file.filename;
-
-    const food = new foodModel({
-        name:req.body.name,
-        description:req.body.description,
-        price:req.body.price,
-        category:req.body.category,
-        image:image_filename
-    })
-
     try {
-        await food.save()
-        res.json({success:true,message:'Food Added'})
+        let image_filename = req.file.filename; // Ensure the filename is correct
+
+        const food = new foodModel({
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            category: req.body.category,
+            image: image_filename
+        });
+
+        await food.save();
+        res.json({ success: true, message: 'Food Added' });
     } catch (error) {
-        console.log(error)
-        res.json({success:false,message:'Error'})
+        console.log(error);
+        res.json({ success: false, message: 'Error' });
     }
-}
+};
+
 
 // all food list
 const listFood = async (req, res) => {
@@ -38,22 +36,18 @@ const listFood = async (req, res) => {
     }
 }
 
-//remove food item 
-const removeFood = async(req, res) => {
-    //logic to remove food from list 
+// Remove food item
+const removeFood = async (req, res) => {
     try {
-        //to find food item which we have to remove or delete
-        //we fetch food item by id
         const food = await foodModel.findById(req.body.id);
-        // to delete food item
-        //using this line delete the image from the folder
-        fs.unlink(`uploads/${food.image}` , () => {})
-        //using id delete the data from the mongodb database
+        fs.unlink(`uploads/${food.image}`, (err) => {
+            if (err) console.log('Error removing file:', err);
+        });
         await foodModel.findByIdAndDelete(req.body.id);
-        res.json({success:true,message:"Food removed"})
+        res.json({ success: true, message: 'Food removed' });
     } catch (error) {
-        console.log(error)
-        res.json({success:false,message:'Error'})
+        console.log(error);
+        res.json({ success: false, message: 'Error' });
     }
 }
 
