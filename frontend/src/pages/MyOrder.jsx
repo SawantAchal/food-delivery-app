@@ -46,7 +46,7 @@ const MyOrder = () => {
                                 Items : {order.items.length}
                             </p>
                             <p><span className='text-red-700'>&#x25cf;</span> <b className='font-medium text-gray-800'>{order.status}</b></p>
-                            <button className='border-none px-3 py-0 rounded bg-yellow-50 cursor-pointer '>Track order</button>
+                            <button onClick={fetchOrders} className='border-none px-3 py-0 rounded bg-yellow-50 cursor-pointer '>Track order</button>
                         </div>
                     )
                 })
