@@ -10,6 +10,7 @@ import AppDownload from './components/AppDownload'
 import { useState } from 'react'
 import LoginPopup from './components/LoginPopup'
 import VerifyPage from './pages/VerifyPage'
+import MyOrder from './pages/MyOrder'
 function App() {
   // to display login popup
   const [showLogin, setShowLogin] = useState(false)
@@ -27,6 +28,7 @@ function App() {
           <Route path='/menu' element={<ExploreMenu/>}/>
           <Route path='/app-download' element={<AppDownload/>}/>
           <Route path='/verify' element={<VerifyPage/>}/>
+          <Route path='/myorders' element={<MyOrder/>}/>
         </Routes>
       </div>
       <Footer/>

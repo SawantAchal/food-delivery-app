@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../context/StoreContext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const PlaceOrderPage = () => {
   const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
@@ -54,6 +55,17 @@ const PlaceOrderPage = () => {
       alert('Error placing order');
     }
   };
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/cart')
+    }
+    else if(getTotalCartAmount() === 0) {
+      navigate('/cart')
+    }
+  },[token])
 
   return (
     <form onSubmit={placeOrder} className='flex items-start justify-between gap-12 mt-24'>

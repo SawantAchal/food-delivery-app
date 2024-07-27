@@ -39,7 +39,7 @@ function Navbar({setShowLogin}) {
           : <div className='relative group'>
             <img src={assets.profile_icon} alt=''/>
             <ul className='absolute hidden z-10 right-5  group-hover:flex group-hover:flex-col group-hover:p-3 gap-2 bg-white shadow-md rounded border border-solid border-red-800 outline-2 outline-none outline-white'>
-              <li className='flex items-center gap-2 cursor-pointer hover:text-red-600'><img src={assets.bag_icon} alt='' className='w-5'/><p className=''>Orders</p></li>
+              <li onClick={() =>navigate('/myorders')} className='flex items-center gap-2 cursor-pointer hover:text-red-600'><img src={assets.bag_icon} alt='' className='w-5'/><p className=''>Orders</p></li>
               <hr/>
               <li className='flex items-center gap-2 cursor-pointer hover:text-red-600' onClick={logout}><img src={assets.logout_icon} alt=''className='w-5'/><p className=''>Logout</p></li>
             </ul>
