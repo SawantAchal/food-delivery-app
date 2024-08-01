@@ -13,7 +13,7 @@ const VerifyPage = () => {
     useEffect(() => {
       const timer = setTimeout(() => {
         navigate('/myorders');
-      },20000);
+      },1000);
       return() => clearTimeout(timer);
     },[navigate])
 
