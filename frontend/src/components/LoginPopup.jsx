@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { StoreContext } from '../context/StoreContext'
 import axios from 'axios';
+import {toast} from 'react-toastify'
 
 const LoginPopup = ({setShowLogin}) => {
     const {url,setToken, token} = useContext(StoreContext)
@@ -44,9 +45,8 @@ const LoginPopup = ({setShowLogin}) => {
             setShowLogin(false)
         }
         else{
-            alert(response.data.message) 
+            toast.error(response.data.message);
         }
-
     }
 
 

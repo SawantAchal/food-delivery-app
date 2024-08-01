@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar'
 import CartPage from './pages/CartPage'
 import HomePage from './pages/HomePage'
@@ -11,6 +13,7 @@ import { useState } from 'react'
 import LoginPopup from './components/LoginPopup'
 import VerifyPage from './pages/VerifyPage'
 import MyOrder from './pages/MyOrder'
+
 function App() {
   // to display login popup
   const [showLogin, setShowLogin] = useState(false)
