@@ -13,7 +13,7 @@ const loginUser = async (req, res) => {
         //to check we get user or not 
         if (!user) {
             //if we not get any user
-            return res.json({success:false, messsage:"user does not exist"})
+            return res.json({success:false, messsage:"user Doesnot exist"})
         }
         //if getting user then we match password the store password in the db
         const isMatch = await bcrypt.compare(password , user.password)
@@ -21,6 +21,7 @@ const loginUser = async (req, res) => {
         if (!isMatch) {
             return res.json({success:false,messsage:"Invalid credentials"})
         }
+
         //if password is match we gemerated  one token 
         const token = createToken(user._id)
         res.json({success:true,token})
@@ -43,17 +44,15 @@ const registerUser = async (req, res) => {
         //check email is already register or not
         const exists = await userModel.findOne({email});
         if (exists) {
-            return res.json({success:false,messsage:"User already exists"})
+            return res.json({success:false,messsage:"User already exixts"})
         }
         //validating email format and strong password
         if (!validator.isEmail(email)) {
             return res.json({success:false,messsage:"Please enter valid email"})
         }
 
-        // Check password complexity
-        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-        if (passwordRegex.test(password)) {
-            return res.json({success:false,messsage:"Password must be at least 8 characters long and include at least one letter, one number, and one special character"})
+        if (password.length<8) {
+            return res.json({success:false,messsage:"Please enter strong password"})
         }
 
         //to encrypt the passowrd
