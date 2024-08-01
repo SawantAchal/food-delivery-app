@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className='text-gray-300 bg-slate-500 flex flex-col items-center gap-5 pt-2.5 px-[8vw] pb-5 mt-24'>
         <div className='w-[100%] md:grid md:grid-cols-custom-layout md:gap-20 flex flex-col gap-9'>
             <div className='flex flex-col items-start gap-5 list-none'>
-                <img src={assets.logo}/>
+            <p  className='md:w-48 w-26 md:text-3xl text-xl text-red-600 font-extrabold'>Achal's Res.</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure amet adipisci, quod nemo dolores quia impedit quisquam ducimus iusto dolore, quidem porro quam ipsam qui natus commodi corrupti sunt ipsum?</p>
                 <div className='flex'>
                     <img src={assets.facebook_icon} alt="" className=' w-10 mr-4'/>

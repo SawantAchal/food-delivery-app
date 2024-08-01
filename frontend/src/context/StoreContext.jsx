@@ -7,7 +7,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
     // to add item into cart
     const [cartItems , setCartItems] = useState({})
-    const url ="http://localhost:4000"
+    const url ="https://food-delivery-app-xai3.onrender.com"
     //crested state to store token in loginform 
     const [token , setToken] = useState("")
     const [food_list ,setFoodList] = useState([])
