@@ -25,7 +25,7 @@ const CartPage = () => {
             if (cartItems[item._id]>0) {
               return (
                 <div>
-                  <div className='grid grid-cols-custom-layout-for-cart items-center  text-[max(1vw,12px)] mx-4 my-0 text-black p-2'>
+                  <div className='grid grid-cols-custom-layout-for-cart items-center  text-[max(1vw,12px)] mx-4 my-0 text-black p-2 gap-1'>
                     <img src={url+"/images/"+item.image} alt={item.name} className='w-12'/>
                     <p>{item.name}</p>
                     <p>${item.price}</p>

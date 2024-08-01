@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const PlaceOrderPage = () => {
   const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
+  const navigate = useNavigate()
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -56,7 +57,7 @@ const PlaceOrderPage = () => {
     }
   };
 
-  const navigate = useNavigate()
+
 
   useEffect(() => {
     if (!token) {
@@ -68,7 +69,7 @@ const PlaceOrderPage = () => {
   },[token])
 
   return (
-    <form onSubmit={placeOrder} className='flex items-start justify-between gap-12 mt-24'>
+    <form onSubmit={placeOrder} className='flex flex-col  md:flex-row items-start justify-between gap-12 mt-14 md:m-10 m-5'>
       <div className='w-full max-w-[max(30%,500px)]'>
         <p className='text-2xl font-bold mb-12'>Delivery Information</p>
         <div className='flex gap-3'>
@@ -89,7 +90,7 @@ const PlaceOrderPage = () => {
       </div>
       <div className='w-full max-w-[max(40%,500px)]'>
         <div className='flex-1 flex flex-col gap-5'>
-          <h2>Cart Totals</h2>
+          <h2 className='text-2xl font-bold mb-5'>Cart Totals</h2>
           <div>
             <div className='flex justify-between text-gray-400'>
               <p>Subtotal</p>

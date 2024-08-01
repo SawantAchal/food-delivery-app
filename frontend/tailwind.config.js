@@ -23,7 +23,10 @@ export default {
         'custom-layout-for-cart' : '1fr 1.5fr 1fr 1fr 1fr 0.5fr',
         'custom-layout-for-myorder' : '0.5fr 2fr 1fr 1fr 2fr 1fr',
         'custom-layout-for-myorder-small' : ' 1fr 2fr 1fr'
-      }
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
     },
   },
   plugins: [],

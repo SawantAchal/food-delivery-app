@@ -38,7 +38,7 @@ function Navbar({setShowLogin}) {
           !token ?  <button className='bg-transparent md:text-lg text-sm border-red-500 p-2 rounded-full border-2 cursor-pointer' onClick={() => setShowLogin(true)}>sign in</button>
           : <div className='relative group'>
             <img src={assets.profile_icon} alt=''/>
-            <ul className='absolute hidden z-10 right-5  group-hover:flex group-hover:flex-col group-hover:p-3 gap-2 bg-white shadow-md rounded border border-solid border-red-500 outline-2 outline-none outline-white'>
+            <ul className='absolute hidden z-10 right-3 group-hover:flex group-hover:flex-col group-hover:p-3 gap-2 bg-white shadow-md rounded border border-solid border-red-500 outline-2 outline-none outline-white w-28'>
               <li onClick={() =>navigate('/myorders')} className='flex items-center gap-2 cursor-pointer hover:text-red-500'><img src={assets.bag_icon} alt='' className='w-5'/><p className=''>Orders</p></li>
               <hr/>
               <li className='flex items-center gap-2 cursor-pointer hover:text-red-500' onClick={logout}><img src={assets.logout_icon} alt=''className='w-5'/><p className=''>Logout</p></li>
