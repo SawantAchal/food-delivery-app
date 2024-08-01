@@ -27,7 +27,7 @@ function Navbar({setShowLogin}) {
         <Link to='/footer' onClick={() => setMenu("contact-us")} className={`cursor-pointer ${menu === "contact-us" ? "border-b-2 border-red-500" : ""}`}>contact us</Link>
       </ul>
       <section className='flex items-center md:gap-10 gap-5'>
-        <img src={assets.search_icon} alt='' />
+        <img src={assets.search_icon} alt='' className='hidden md:block'/>
         <section className='relative'>
           <Link to={'/cart'}><img src={assets.basket_icon} alt='' /></Link>
           {/* if item is in the cart then dot is visible if not then dot is not visible  */}

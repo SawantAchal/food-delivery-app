@@ -52,19 +52,19 @@ const LoginPopup = ({setShowLogin}) => {
 
 
   return (
-    <div className='absolute z-10 w-full h-full bg-slate-50 grid'>
+    <div className='absolute z-10 w-full h-full bg-neutral-50 grid'>
         <form onSubmit={onLogin} className='place-self-center w-[max(23vw,330px)] text-gray-400 bg-white flex flex-col gap-6 rounded-md text-lg animate-[fadeIn_0.5s] py-6 px-8'>
-            <div className='flex justify-between items-center text-black'>
+            <div className='flex justify-between items-center font-bold text-black'>
                 <h2>{currentState}</h2>
                 <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt='cross button' className='w-4 cursor-pointer'/>
             </div>
             <div className='flex flex-col gap-5'>
                 {/* to remove input field when state is login */}
                 {
-                    currentState==="login"? <></> :<input type='text' name='name' onChange={onChangeHandler} value={data.name} placeholder='Your Name' required className='outline-none border-2 border-solid border-purple-600 rounded-md' />
+                    currentState==="login"? <></> :<input type='text' name='name' onChange={onChangeHandler} value={data.name} placeholder='Your Name' required className='outline-none border-black border p-1 rounded-md' />
                 }
-                <input type='email' name='email' onChange={onChangeHandler} value={data.email} placeholder='Your Email id' required className='outline-none border-2 border-solid border-purple-600 rounded-md'/>
-                <input type='password' name='password' onChange={onChangeHandler} value={data.password} placeholder='Password' required className='outline-none border-2 border-solid border-purple-600 rounded-md'/>
+                <input type='email' name='email' onChange={onChangeHandler} value={data.email} placeholder='Your Email id' required className='outline-none border-black border p-1 rounded-md'/>
+                <input type='password' name='password' onChange={onChangeHandler} value={data.password} placeholder='Password' required className='outline-none border-black border p-1 rounded-md'/>
             </div>
             <button type='submit' className='border-none p-2.5 rounded-md text-white bg-red-700 text-sm'>
                 {

@@ -7,7 +7,7 @@ const FoodDisplay = ({category}) => {
     const {food_list} = useContext(StoreContext)
   return (
     <div className='mt-8'>
-        <h1 className='text-[max(2vw,24px)] font-bold'>Top dished near you</h1>
+        <h1 className='text-[max(2vw,24px)] font-bold text-center'>Top dished near you</h1>
         <div className='grid grid-cols-auto-fill-240 gap-8 mt-8 gap-y-12'>
             {
                 food_list.map((item, index) => {

@@ -6,7 +6,7 @@ const FoodItem = ({id , name , price, description , image}) => {
     const {cartItems ,addToCart,removeFromCart,url} = useContext(StoreContext)
 
   return (
-    <div className='w-[100%] m-auto rounded-xl shadow-sm transition-[0.3s] animate-[fadeIn_3s]'>
+    <div className='w-[100%] md:m-auto m-2 rounded-xl shadow-sm transition-[0.3s] animate-[fadeIn_3s]'>
         <div className='relative'>
             <img src={url+"/images/"+image} alt={name} className='w-[100%] h-[243.49px] rounded-t-xl'/>
             {

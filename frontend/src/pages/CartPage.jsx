@@ -7,9 +7,9 @@ const CartPage = () => {
   const {cartItems ,food_list,removeFromCart ,getTotalCartAmount,url} = useContext(StoreContext)
   const navigate = useNavigate()
   return (
-    <div className='mt-24 '>
+    <div className='md:mt-24 mt-16 '>
       <div className=''>
-        <div className='grid grid-cols-custom-layout-for-cart items-center text-gray-500 text-[max(1vw,12px)]'>
+        <div className='grid grid-cols-custom-layout-for-cart items-center text-gray-500 text-[max(1vw,12px)] md:ml-5'>
           <p>Items</p>
           <p>Title</p>
           <p>Price</p>
@@ -43,7 +43,7 @@ const CartPage = () => {
       </div>
       <div className='mt-20 flex flex-col-reverse sm:flex-row justify-between gap-[max(12vw,20px)]'>
         {/* for bill */}
-        <div className='flex-1 flex flex-col gap-5'>
+        <div className='flex-1 flex flex-col gap-5 m-3'>
           <h2>Cart Totals</h2>
           <div>
             <div className='flex justify-between text-gray-400'>
@@ -61,10 +61,10 @@ const CartPage = () => {
               <strong>${getTotalCartAmount()===0?0:getTotalCartAmount() + 2}</strong>
             </div>
           </div>
-          <button className='border-none text-white bg-red-500 w-[max(15vw,200px)] rounded-md cursor-pointer px-3 py-0' onClick={() => navigate('/order')}>PROCEED TO CHECKOUT</button>
+          <button className='border-none text-white bg-red-500 w-[max(15vw,200px)] rounded-md cursor-pointer px-3 py-0 p-2' onClick={() => navigate('/order')}>PROCEED TO CHECKOUT</button>
         </div>
         {/* for promo code */}
-        <div className='flex-1 justify-start  '>
+        <div className='flex-1 justify-start m-3  '>
           <div>
             <p className='text-gray-400'>If you have a promo code, Enter it here</p>
             <div className='mt-3 flex justify-between items-center bg-slate-400 rounded-md'>
