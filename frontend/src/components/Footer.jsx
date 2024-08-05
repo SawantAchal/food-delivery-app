@@ -27,7 +27,7 @@ const Footer = () => {
                 <h2 className='text-white'>GET IN TOUCH</h2>
                 <ul className='cursor-pointer'>
                     <li>+91 -1234567890</li>
-                    <li>conact@tomato.com</li>
+                    <li>conact@achalres.com</li>
                 </ul>
             </div>
         </div>
