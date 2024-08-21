@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Header = () => {
   return (
     <header className='bg-contain bg-center  h-[34vw] mt-8 mb-8 mx-auto bg-no-repeat relative ' style={{backgroundImage: `url('/header_img.png')`}}>
