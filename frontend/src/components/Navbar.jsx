@@ -18,18 +18,18 @@ const  Navbar = ({setShowLogin}) => {
   }
 
   return (
-    <nav className='p-5 flex justify-between items-center'>
-      <Link to={'/'}><p className='md:w-48 w-26 md:text-3xl text-xl text-red-600 font-extrabold'>Achal's Res.</p></Link>
-      <ul className='lg:flex list-none gap-5 text-2xl hidden'>
-        <Link to='/' onClick={() => setMenu("home")} className={`cursor-pointer ${menu === "home" ? "border-b-2 border-red-500" : ""}`}>home</Link>
-        <Link to='/menu' onClick={() => setMenu("menu")} className={`cursor-pointer ${menu === "menu" ? "border-b-2 border-red-500" : ""}`}>menu</Link>
-        <Link to='/app-download' onClick={() => setMenu("mobile-app")} className={`cursor-pointer ${menu === "mobile-app" ? "border-b-2 border-red-500" : ""}`}>mobile-app</Link>
-        <Link to='/footer' onClick={() => setMenu("contact-us")} className={`cursor-pointer ${menu === "contact-us" ? "border-b-2 border-red-500" : ""}`}>contact us</Link>
+    <nav className='bg-gray-900 text-gray-200 p-4 md:p-6 flex justify-between items-center'>
+      <Link to={'/'}><p className='text-red-600 text-2xl md:text-3xl font-extrabold hover:text-red-400 transition-colors'>Achal's Res.</p></Link>
+      <ul className='hidden lg:flex list-none gap-8 text-lg md:text-xl'>
+        <Link to='/' onClick={() => setMenu("home")} className={`cursor-pointer ${menu === "home" ? "border-b-2 border-red-500 text-white" : "text-gray-300 hover:text-white"}`}>home</Link>
+        <Link to='/menu' onClick={() => setMenu("menu")} className={`cursor-pointer ${menu === "menu" ? "border-b-2 border-red-500 text-white" : "text-gray-300 hover:text-white"}`}>menu</Link>
+        <Link to='/app-download' onClick={() => setMenu("mobile-app")} className={`cursor-pointer ${menu === "mobile-app" ? "border-b-2 border-red-500 text-white" : "text-gray-300 hover:text-white"}`}>mobile-app</Link>
+        <Link to='/footer' onClick={() => setMenu("contact-us")} className={`cursor-pointer ${menu === "contact-us" ? "border-b-2 border-red-500 text-white" : "text-gray-300 hover:text-white"}`}>contact us</Link>
       </ul>
-      <section className='flex items-center md:gap-10 gap-5'>
-        <img src={assets.search_icon} alt='' className='hidden md:block' />
+      <section className='flex items-center space-x-4'>
+        <img src={assets.search_icon} alt='' className='w-6 h-6 hidden md:block' />
         <section className='relative'>
-          <Link to={'/cart'}><img src={assets.basket_icon} alt='' /></Link>
+          <Link to={'/cart'}><img src={assets.basket_icon} alt='Cart' className='w-8 h-8' /></Link>
             {/* Show red dot if there's something in the cart */}
             <section className={getTotalCartAmount() === 0 ? '' : 'absolute min-w-2 min-h-2 bg-red-500 -top-2 -right-2 rounded-lg'}></section>
         </section>
